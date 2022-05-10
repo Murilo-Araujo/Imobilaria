@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main(void){
+    
+    int tipo, modelo, dias, contente;
+    char garagem;
+    
+    setlocale(LC_ALL,"portuguese");
+    
+    do{
+    printf("Escolha entre:\n1-Casa\n2-Apartamento\n");
+    scanf("%d", &tipo);
+    
+    
+   
+    switch(tipo){
+        case 1:{
+            printf("\n\nEscolha entre:\n1-Casa amarela de frente para o mar - R$1200/dia\n___________________________________________________\n\n   OFERTA !!!! Casa Verde com 10%% de desconto\n\n___________________________________________________\n2-Casa verde a 1 quadra da praia - R$700/dia\n");
+            scanf("%d", &modelo);
+            
+            printf("\nInforme a quantidade de diarias:\n");
+            scanf("%d", &dias);
+            
+            switch(modelo){
+                case 1:{
+                    
+                    printf("\nVocê escolheu %d dias na casa amarela de frente para o mar, dando um total de R$%.2f", dias,(float) dias * 1200);
+                    
+                    break;
+                }
+                case 2:{
+                    printf("\nVocê escolheu %d dias na casa verde a 1 quadra da praia, dando um total de R$%.2f", dias, (float)((dias * 700) * 0.9));
+                    
+                    break;
+                }
+            }
+            
+            break;
+        }
+        case 2:{
+            printf("\n\nEscolha entre:\n1-Cobertura de frente para o mar - R$8500/dia\n2-Apto com vista para o mar - R$1300 (caso desejar usar a garagem há um acrescimo de R$200)\n");
+            scanf("%d", &modelo);
+            
+            printf("\nInforme a quantidade de diarias:\n");
+            scanf("%d", &dias);
+            
+            switch(modelo){
+                case 1:{
+                    
+                    printf("\nVocê escolheu %d dias na Cobertura de frente para o mar, dando um total de R$%d,00", dias, dias * 8500);
+                    
+                    break;
+                }
+                case 2:{
+                    
+                    printf("\nVoçê escolheu %d dias no apartamento com vista para o mar, você deseja usar a garagem ? (S OU N)\n", dias);
+                    scanf("%s", &garagem);
+                    
+                    switch(garagem){
+                        case 's': case 'S':{
+                            
+                            printf("\nVocê escolheu %d dias no apartamento com vista para o mar, dando um total de R$%.2f", dias, (float) (dias * 1300) + 200);
+                            
+                            break;
+                        }
+                        case 'n': case 'N':{
+                            
+                            printf("\nVocê escolheu %d dias no apartamento com vista para o mar, dando um total de R$%.2f", dias, (float) (dias * 1300));
+                            
+                            break;
+                        }
+                    }
+                    
+                    break;
+                }
+            }
+            
+            break;
+        }
+        
+    }
+   
+    printf("\n\n\nvocê deseja refazer o aluguel ? (1 para sim \\ 2 para não)\n");
+    scanf("%d", &contente);
+  
+   }while( contente == 1);
+  
+    
+}
